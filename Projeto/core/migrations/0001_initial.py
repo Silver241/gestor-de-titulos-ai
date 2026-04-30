@@ -14,6 +14,10 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+         migrations.RunSQL(
+            sql="CREATE TYPE programa_edicao AS ENUM ('valor1', 'valor2');",
+            reverse_sql="DROP TYPE programa_edicao;"
+        ),
         migrations.CreateModel(
             name='Categoria',
             fields=[
