@@ -59,61 +59,82 @@ const Login = () => {
   };
 
   return (
- <div
-  className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center relative"
-  style={{ backgroundImage: `url(${background})` }}
->
-  <div className="absolute inset-0 bg-black/40" />
+  <div
+    className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center relative"
+    style={{ backgroundImage: `url(${background})` }}
+  >
+    {/* overlay mais suave */}
+    <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
 
-  <Card className="w-full max-w-md shadow-lg relative z-10">
-        <CardHeader className="space-y-3 text-center">
-          <div className="mx-auto w-16 h-16 flex items-center justify-center">
-  <img
-    src={logoRtc}
-    alt="RTC Logo"
-    className="w-full h-full object-contain"
-  />
-</div>
-          <CardTitle className="text-2xl">Gestor de titulos</CardTitle>
-          {/* <CardDescription>
-            Solução para organizar e gerir os seus títulos com integração de IA 
-          </CardDescription> */}
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="username">Utilizador</Label>
-              <Input
-                id="username"
-                type="text"
-                placeholder="Digite seu utilizador"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                disabled={isLoading}
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">Senha</Label>
-              <Input
-                id="password"
-                type="password"
-                placeholder="Digite sua senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                disabled={isLoading}
-              />
-            </div>
-            <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? "Entrando..." : "Entrar"}
-            </Button>
-          </form>
-          
-        </CardContent>
-      </Card>
-    </div>
-  );
+    <Card className="w-full max-w-md relative z-10 
+      bg-white/70 backdrop-blur-xl 
+      border border-white/30 
+      shadow-2xl rounded-2xl">
+
+      <CardHeader className="space-y-4 text-center">
+        <div className="mx-auto w-20 h-20 flex items-center justify-center">
+          <img
+            src={logoRtc}
+            alt="RTC Logo"
+            className="w-full h-full object-contain drop-shadow-md"
+          />
+        </div>
+
+        <CardTitle className="text-2xl font-bold tracking-tight">
+          Gestor de títulos
+        </CardTitle>
+
+       {/*  <CardDescription className="text-muted-foreground text-sm">
+          Acesse sua conta para continuar
+        </CardDescription> */}
+      </CardHeader>
+
+      <CardContent>
+        <form onSubmit={handleLogin} className="space-y-5">
+
+          <div className="space-y-2">
+            <Label htmlFor="username">Utilizador</Label>
+            <Input
+              id="username"
+              type="text"
+              placeholder="Digite seu utilizador"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              disabled={isLoading}
+              className="bg-white/80 border border-gray-200 focus:ring-2 focus:ring-primary/40 rounded-lg"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="password">Senha</Label>
+            <Input
+              id="password"
+              type="password"
+              placeholder="Digite sua senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              disabled={isLoading}
+              className="bg-white/80 border border-gray-200 focus:ring-2 focus:ring-primary/40 rounded-lg"
+            />
+          </div>
+
+          <Button
+            type="submit"
+            className="w-full rounded-lg text-base font-semibold 
+            bg-primary hover:bg-primary/90 
+            transition-all duration-300 shadow-md"
+            disabled={isLoading}
+          >
+            {isLoading ? "Entrando..." : "Entrar"}
+          </Button>
+
+        </form>
+      </CardContent>
+    </Card>
+  </div>
+);
 };
 
 export default Login;
