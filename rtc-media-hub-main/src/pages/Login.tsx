@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { toast } from "sonner";
 import { authApi } from "@/services/endpoints";
 import logoRtc from "@/assets/logo-rtc.png";
+import background from "@/assets/background.png";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -58,8 +59,13 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <Card className="w-full max-w-md shadow-lg">
+ <div
+  className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center relative"
+  style={{ backgroundImage: `url(${background})` }}
+>
+  <div className="absolute inset-0 bg-black/40" />
+
+  <Card className="w-full max-w-md shadow-lg relative z-10">
         <CardHeader className="space-y-3 text-center">
           <div className="mx-auto w-16 h-16 flex items-center justify-center">
   <img

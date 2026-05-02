@@ -23,6 +23,9 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('core.api.urls')),
@@ -32,4 +35,6 @@ urlpatterns = [
 
     # Rotas da tua API
     path('api/', include('core.api.urls')),
+    # Rota para testar o Sentry
+    path('sentry-debug/', trigger_error),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
