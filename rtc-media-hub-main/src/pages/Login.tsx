@@ -93,7 +93,7 @@ const Login = () => {
             </CardTitle>
 
             <CardDescription>
-              Acesse sua conta para continuar
+              Acesse sua conta para continuar (user:Admin, password:123)
             </CardDescription>
           </CardHeader>
 
